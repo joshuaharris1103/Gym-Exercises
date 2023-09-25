@@ -4,7 +4,7 @@ import { exerciseOptions, fetchData } from '../utils/fetchData'
 import HorizontalScrollbar from './HorizontalScrollbar'
 // import { CircleOutlined } from '@mui/icons-material'
 
-const SearchExercises = ( setExercises, bodyPart, setBodyPart ) => {
+const SearchExercises = ( {setExercises, bodyPart, setBodyPart} ) => {
   const [ search, setSearch ] = useState('')
   const [ bodyParts, setBodyParts] = useState([])
 
@@ -24,12 +24,16 @@ const SearchExercises = ( setExercises, bodyPart, setBodyPart ) => {
 
       const searchedExercises = exercisesData.filter (
         (exercise) => 
-           exercise.name.toLowerCase().includes(search)
+        exercise.name.toLowerCase().includes(search)
         || exercise.target.toLowerCase().includes(search)
         || exercise.equipment.toLowerCase().includes(search)
         || exercise.bodyPart.toLowerCase().includes(search)
         )
         // console.log(exerciseData)
+        // console.log(name)
+        // console.log(target)
+        // console.log(equipment)
+        // console.log(bodyPart)
 
         setSearch('')
         setExercises(searchedExercises)
